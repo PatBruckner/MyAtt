@@ -1,0 +1,16 @@
+<p>classadmin works!</p>
+
+<div>
+<p>----------Campos par creacion de clase-------</p>
+
+
+<input [(ngModel)]="className"/> 
+<input type="date" #start/>  
+<input type="date" #end/>  
+<button (click)="createClass(start.value, end.value)"> crear clase </button>
+
+{{uid}}
+{{className}}
+
+<p>----------Campos par creacion de clase-------</p>
+</div>
