@@ -14,6 +14,7 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { SignlogComponent } from './components/signlog/signlog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClassadminComponent } from './components/classadmin/classadmin.component';
+import { ClasssignupComponent } from './components/classsignup/classsignup.component';
 
 
 
@@ -23,7 +24,8 @@ import { ClassadminComponent } from './components/classadmin/classadmin.componen
     AppComponent,
     SignlogComponent,
     DashboardComponent,
-    ClassadminComponent
+    ClassadminComponent,
+    ClasssignupComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
