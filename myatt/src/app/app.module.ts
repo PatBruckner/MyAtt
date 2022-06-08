@@ -14,6 +14,7 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { SignlogComponent } from './components/signlog/signlog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClassadminComponent } from './components/classadmin/classadmin.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -30,7 +31,8 @@ import { ClassadminComponent } from './components/classadmin/classadmin.componen
     AngularFireAuthModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
