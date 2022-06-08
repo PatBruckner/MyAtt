@@ -9,8 +9,18 @@
 <input type="date" #end/>  
 <button (click)="createClass(start.value, end.value)"> crear clase </button>
 
-{{uid}}
-{{className}}
+
 
 <p>----------Campos par creacion de clase-------</p>
+
+<button (click)="fetchClasses()">Cargar Clases</button>
 </div>
+
+<div>
+<p> Lista de Clases</p> 
+
+<div *ngFor="let class of asProffList">
+    {{class}}
+</div>
+
+

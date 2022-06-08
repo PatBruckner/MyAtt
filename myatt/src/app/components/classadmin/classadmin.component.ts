@@ -12,6 +12,9 @@ import {arrayUnion} from 'firebase/firestore';
 export class ClassadminComponent implements OnInit {
 
   uid!: string;
+  asProffList!:any[];
+  asStudentList!:any[];
+
   @Input() className!: string;
   @Output() classNameChange = new EventEmitter<string>();
 
@@ -33,17 +36,24 @@ export class ClassadminComponent implements OnInit {
       ClassName: this.className,
       IdProff: this.uid,
       StartDate: start,
-      EndDate: end
+      EndDate: end,
+      Students: []
     }).then((res: any) =>{
       console.log(res.id)
       console.log("Class creation was successful")
-      this.dbhandler.addClassProff(this.uid, 
+      this.dbhandler.updateUser(this.uid, 
         {
           ClassesAsProff: arrayUnion(res.id)
       }).then( (res2:any) => console.log("success"))
     })
   }
 
+  fetchClasses(){
+    this.dbhandler.getClasses(this.uid).subscribe((res:any) =>{
+      console.log(res.data().ClassesAsProff)
+      this.asProffList = res.data().ClassesAsProff
+    })
+  }
   
 
 }

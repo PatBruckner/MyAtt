@@ -15,6 +15,8 @@ import { SignlogComponent } from './components/signlog/signlog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClassadminComponent } from './components/classadmin/classadmin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClasssignupComponent } from './components/classsignup/classsignup.component';
+
 
 
 
@@ -24,7 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     SignlogComponent,
     DashboardComponent,
-    ClassadminComponent
+    ClassadminComponent,
+    ClasssignupComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
