@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 //import { Polls } from '../models/polls';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 //import {collection, getDocs} from 'firebase/firestore';
 
 
@@ -11,43 +11,49 @@ import {AngularFirestore} from '@angular/fire/compat/firestore';
 export class DbhandlerService {
 
   //sharableList: any[];
-  pollHolder:any;
-  uid:any;
+  pollHolder: any;
+  uid: any;
+  infoHolder!: any[];
 
   constructor(private firestore: AngularFirestore) {
     //this.sharableList = [];
-   }
+  }
 
-   public createClass(body:any){
+  public createClass(body: any) {
     return this.firestore.collection("Classes").add(body)
-   }
+  }
 
-   public addStudent(id:any,body:any){
-     return this.firestore.collection("Classes").doc(id).update(body)
-   }
+  public addStudent(id: any, body: any) {
+    return this.firestore.collection("Classes").doc(id).update(body)
+  }
 
-   public updateUser(uid:any, body:any){
-     return this.firestore.collection("Users").doc(uid).update(body)
-   }
+  public updateUser(uid: any, body: any) {
+    return this.firestore.collection("Users").doc(uid).update(body)
+  }
 
-   public createUser(uid:any, body:any){
-     return this.firestore.collection("Users").doc(uid).set(body)
-   }
+  public createUser(uid: any, body: any) {
+    return this.firestore.collection("Users").doc(uid).set(body)
+  }
 
-    public getClasses(uid:any){
-     return this.firestore.collection('Users').doc(uid).get()
-    }
+  public getClasses(uid: any) {
+    return this.firestore.collection('Users').doc(uid).get()
+  }
+
+  public updateAttendance(classid:any, body:any){
+    return this.firestore.collection("Classes").doc(classid).update(body)
+  }
+
+  public getAClass(id:any){
+    return this.firestore.collection('Classes').doc(id).get()
+
+  }
 
   // public createPoll(body:any){
   //   return this.firestore.collection("polls").add({body})
   // }
 
- 
 
-  // public getAPoll(id:any){
-  //   return this.firestore.collection('polls').doc(id).get()
 
-  // }
 
   // public getAUser(id:any){
   //   return this.firestore.collection('owners').doc(id).get()
@@ -88,7 +94,7 @@ export class DbhandlerService {
   // public openOrCloseOwnerSide(uid: any, body: any){
   //   return this.firestore.collection("owners").doc(uid).update(body)
   // }
-  
+
   // //Testing Ground
   // public snapshotListener(id:any){
   //   return this.firestore.collection('polls').doc(id).snapshotChanges()

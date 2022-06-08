@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DbhandlerService } from 'src/app/services/dbhandler/dbhandler.service';
 import {arrayUnion} from 'firebase/firestore';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ClassadminComponent implements OnInit {
   @Input() className!: string;
   @Output() classNameChange = new EventEmitter<string>();
 
-  constructor(private fbAuth: AngularFireAuth, private dbhandler: DbhandlerService) {
+  constructor(private fbAuth: AngularFireAuth, private dbhandler: DbhandlerService, private router:Router) {
    }
 
   ngOnInit(): void {
@@ -55,5 +56,16 @@ export class ClassadminComponent implements OnInit {
     })
   }
   
+  goToAttendance(classId:string){
+    this.dbhandler.infoHolder = []
+    this.dbhandler.infoHolder.push(classId)
+    this.router.navigate(['attp'])
+  }
+
+  markAttendance(classId:string){
+    this.dbhandler.infoHolder = []
+    this.dbhandler.infoHolder.push(classId)
+    this.router.navigate(['atts'])
+  }
 
 }

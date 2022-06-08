@@ -21,6 +21,8 @@
 
 <div *ngFor="let class of asProffList">
     {{class}}
+    <button (click)="goToAttendance(class)"> Take Attendance</button>
+    <button (click)="markAttendance(class)"> Mark Attendace</button>
 </div>
 
 

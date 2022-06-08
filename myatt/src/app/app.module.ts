@@ -16,6 +16,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClassadminComponent } from './components/classadmin/classadmin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClasssignupComponent } from './components/classsignup/classsignup.component';
+import { AttProffComponent } from './components/att-proff/att-proff.component';
+import { AttStudentComponent } from './components/att-student/att-student.component';
 
 
 
@@ -27,7 +29,9 @@ import { ClasssignupComponent } from './components/classsignup/classsignup.compo
     SignlogComponent,
     DashboardComponent,
     ClassadminComponent,
-    ClasssignupComponent
+    ClasssignupComponent,
+    AttProffComponent,
+    AttStudentComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
