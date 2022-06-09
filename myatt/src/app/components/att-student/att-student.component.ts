@@ -15,6 +15,9 @@ export class AttStudentComponent implements OnInit {
   classId!:string
   att!:any;
   uid!:string;
+  dates:string[]=[];
+  datesPresent:boolean[]=[]
+
   ngOnInit(): void {
     this.fbAuth.onAuthStateChanged((user: any) => {
       this.uid = user.uid;
@@ -22,19 +25,17 @@ export class AttStudentComponent implements OnInit {
 
     this.classId = this.dbhandler.infoHolder.pop()
     this.dbhandler.getAClass(this.classId).subscribe((res:any) =>{
-      console.log(res.data())
       this.att=res.data()
+      this.constructArray()
     })
   }
 
   markAtt(){
     let temp = this.getDate()
-    console.log(this.att.Attendaces[`${temp}`].Code)
-    console.log(this.att.Attendaces[`${temp}`].Code == this.attCode)
-    if(this.att.Attendaces[`${temp}`].Code == this.attCode && this.att.Attendaces[`${temp}`].Open){
+    if(this.att.Attendances[`${temp}`].Code == this.attCode && this.att.Attendances[`${temp}`].Open){
       console.log("Oie vos, Bienvienido")
       this.dbhandler.updateAttendance(this.classId,{
-        [`Attendaces.${temp}.Students`]:arrayUnion(this.uid)
+        [`Attendances.${temp}.Students`]:arrayUnion(this.uid)
       }).then(() => console.log("Success"))
     }else{
       console.log("LATE, RIP")
@@ -47,5 +48,17 @@ export class AttStudentComponent implements OnInit {
     var d = temp.getUTCDate()
     var y = temp.getUTCFullYear()
     return m+"-"+d+"-"+y
+  }
+
+  constructArray(){
+   // console.log(this.att.Attendances)
+
+    for(let i in this.att.Attendances){
+      console.log(i)
+      this.dates.push(i)
+      console.log(this.att.Attendances[i].Students.indexOf(this.uid) > -1 )
+      this.datesPresent.push(this.att.Attendances[i].Students.indexOf(this.uid) > -1)
+    }
+    
   }
 }

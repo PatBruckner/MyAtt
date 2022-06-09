@@ -25,26 +25,25 @@ export class ClassadminComponent implements OnInit {
   ngOnInit(): void {
     this.fbAuth.onAuthStateChanged((user:any) =>{
       this.uid = user.uid;
+      this.fetchClasses()
     })
   }
 
   createClass(start:any, end:any){
-    console.log("hola")
-    console.log(start)
-    console.log(end)
 
     this.dbhandler.createClass({
       ClassName: this.className,
       IdProff: this.uid,
       StartDate: start,
       EndDate: end,
-      Students: []
+      Students: [],
+      Attendances: []
     }).then((res: any) =>{
       console.log(res.id)
       console.log("Class creation was successful")
       this.dbhandler.updateUser(this.uid, 
         {
-          ClassesAsProff: arrayUnion(res.id)
+          ClassesAsProff: arrayUnion({ClassId:res.id,ClassName:this.className})
       }).then( (res2:any) => console.log("success"))
     })
   }
@@ -53,19 +52,30 @@ export class ClassadminComponent implements OnInit {
     this.dbhandler.getClasses(this.uid).subscribe((res:any) =>{
       console.log(res.data().ClassesAsProff)
       this.asProffList = res.data().ClassesAsProff
+      this.asStudentList = res.data().ClassesAsStudent
     })
   }
   
-  goToAttendance(classId:string){
+  goToAttendanceProff(classId:string){
     this.dbhandler.infoHolder = []
     this.dbhandler.infoHolder.push(classId)
     this.router.navigate(['attp'])
   }
 
-  markAttendance(classId:string){
+  goToAttendanceStudent(classId:string){
     this.dbhandler.infoHolder = []
     this.dbhandler.infoHolder.push(classId)
     this.router.navigate(['atts'])
+  }
+
+  // markAttendance(classId:string){
+  //   this.dbhandler.infoHolder = []
+  //   this.dbhandler.infoHolder.push(classId)
+  //   this.router.navigate(['atts'])
+  // }
+
+  signUp(){
+    this.router.navigate(['classsignup'])
   }
 
 }

@@ -45,7 +45,6 @@ export class DbhandlerService {
 
   public getAClass(id:any){
     return this.firestore.collection('Classes').doc(id).get()
-
   }
 
   // public createPoll(body:any){

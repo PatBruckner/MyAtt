@@ -21,15 +21,14 @@ export class ClasssignupComponent implements OnInit {
     })
   }
 
-  signUp() {
+  async signUp() {
     console.log("Trying to signup")
-    this.dbhandler.addStudent(this.classCode, {
-      Students: arrayUnion(this.uid)
-    }).then((res2: any) => {
-      this.dbhandler.updateUser(this.uid,
-        {
-          ClassesAsStudent: arrayUnion(this.classCode)
-        }).then((res2: any) => console.log("success"))
+    await this.dbhandler.addStudent(this.classCode, {Students: arrayUnion(this.uid)})
+    this.dbhandler.getAClass(this.classCode).subscribe( (res:any) => {
+      console.log(res.data().ClassName)
+      this.dbhandler.updateUser(this.uid, {
+        ClassesAsStudent: arrayUnion({ClassId:this.classCode,ClassName:res.data().ClassName})
+      }).then((res2: any) => console.log("success"))
     })
   }
 

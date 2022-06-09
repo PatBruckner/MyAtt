@@ -35,7 +35,7 @@ export class AttProffComponent implements OnInit {
 
     console.log(date)
     this.dbhandler.updateAttendance(this.classId,{
-      [`Attendaces.${date}.Open`]:false,
+      [`Attendances.${date}.Open`]:false,
     }).then(() => console.log("Success"))
   }
 
@@ -47,9 +47,9 @@ export class AttProffComponent implements OnInit {
 
     console.log(date)
     this.dbhandler.updateAttendance(this.classId,{
-      [`Attendaces.${date}.Code`]:this.classCode,
-      [`Attendaces.${date}.Open`]:true,
-      [`Attendaces.${date}.Students`]:[]
+      [`Attendances.${date}.Code`]:this.classCode,
+      [`Attendances.${date}.Open`]:true,
+      [`Attendances.${date}.Students`]:[]
     }).then(() => console.log("Success"))
   }
 

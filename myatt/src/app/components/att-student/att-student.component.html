@@ -3,3 +3,9 @@
 <input [(ngModel)]="attCode"/> 
 <button (click)="markAtt()"> Mark Attendance </button>
 
+<ul>
+    <li *ngFor="let date of dates; let i = index">
+        {{date}} --> {{datesPresent[i]}}
+    </li>
+</ul>
+
