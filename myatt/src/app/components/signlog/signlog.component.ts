@@ -15,15 +15,20 @@ export class SignlogComponent implements OnInit {
   title = 'ang-route-block';
   signIn() {
     const googleAuthProvider = new GoogleAuthProvider();
-    this.fbAuth.signInWithPopup(googleAuthProvider).then(res => {
-      console.log(res)
-      if(res.additionalUserInfo?.isNewUser){
-        // this.router.navigate(['dashboard'])
+    this.fbAuth.signInWithPopup(googleAuthProvider).then((res:any) => {
+      //console.log(res.additionalUserInfo!.profile)
+      if(res.additionalUserInfo.isNewUser){
         console.log("OIE VOS ERES NUEVO")
-        this.dbhandler.createUser(res.user!.uid)
-      }else{
-        this.router.navigate(['dashboard'])
-      } 
+        this.dbhandler.createUser(res.user!.uid,{
+            ClassesAsProff:[],
+            ClassesAsStudent:[],
+            Name:res.additionalUserInfo.profile.given_name,
+            LastName:res.additionalUserInfo.profile.family_name,
+            Email:res.additionalUserInfo.profile.email,
+          }).then( () => this.router.navigate(['dashboard']))
+     }else{
+       this.router.navigate(['dashboard'])
+     } 
     });
   }
 
@@ -31,7 +36,3 @@ export class SignlogComponent implements OnInit {
   ngOnInit(): void {
   }
 }
-
-
-
-

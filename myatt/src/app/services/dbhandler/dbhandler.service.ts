@@ -19,21 +19,24 @@ export class DbhandlerService {
    }
 
    public createClass(body:any){
-    return this.firestore.collection("Classes").add({body})
+    return this.firestore.collection("Classes").add(body)
    }
 
-   public addClassProff(uid:any, body:any){
+   public addStudent(id:any,body:any){
+     return this.firestore.collection("Classes").doc(id).update(body)
+   }
+
+   public updateUser(uid:any, body:any){
      return this.firestore.collection("Users").doc(uid).update(body)
    }
 
-   public createUser(uid:any){
-     return this.firestore.collection("Users").doc(uid).set({name:"ken"})
+   public createUser(uid:any, body:any){
+     return this.firestore.collection("Users").doc(uid).set(body)
    }
 
-  //  public getUserPolls(uid:any){
-  //   return this.firestore.collection('owners').doc(uid).get()
-
-  // }
+    public getClasses(uid:any){
+     return this.firestore.collection('Users').doc(uid).get()
+    }
 
   // public createPoll(body:any){
   //   return this.firestore.collection("polls").add({body})
