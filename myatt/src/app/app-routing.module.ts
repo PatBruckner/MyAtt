@@ -7,10 +7,14 @@ import { ClasssignupComponent } from './components/classsignup/classsignup.compo
 import { AttProffComponent } from './components/att-proff/att-proff.component';
 import { AttStudentComponent } from './components/att-student/att-student.component';
 
+
 const routes: Routes = [
-  {path:'', redirectTo: '/login', pathMatch:'full'},
-  {path:'login', component: SignlogComponent},// ...canActivate(redirectLoggedInToDashboard)},
-  {path:'dashboard', component: DashboardComponent },//...canActivate(redirectUnauthorizedToLogin)},
+  {path:'', redirectTo: 'login', pathMatch:'full'},
+  
+  {path:'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)},
+  {path:'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)},
+  //{path:'login', component: SignlogComponent},// ...canActivate(redirectLoggedInToDashboard)},
+  //{path:'dashboard', component: DashboardComponent },//...canActivate(redirectUnauthorizedToLogin)},
   {path:'classadmin', component: ClassadminComponent },
   {path:'classsignup', component: ClasssignupComponent },
   {path:'attp', component: AttProffComponent},
