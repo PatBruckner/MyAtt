@@ -16,15 +16,15 @@
                     <h2 color=white;>MyATT</h2>
                   </div>
                   <div id="tableButtons">
-                    <button id="button" >Clases</button>
+                    <button routerLink="clases" id="button" >Clases</button>
                     <div id="test">
-                    <button id="button" >Randomizador</button>
+                    <button routerLink="randomizer" id="button" >Randomizador</button>
                    </div>
                    <div id="test">
-                    <button id="button" >Timer</button>
+                    <button routerLink="timer" id="button" >Timer</button>
                   </div>
                     <div id="test">
-                    <button id="button" >Perfil</button>
+                    <button routerLink="perfil" id="button" >Perfil</button>
                   </div>
                     <div id="test1">
                     <button id="button" (click)="onSignOut()">Cerrar Sesión</button>
@@ -35,15 +35,7 @@
         </div>
         <div class="box03">
             <div id="card">
-                <div id="card-content" >
-                  <div id="card-title2">
-                    <h2 color=white;>Clases</h2>
-                  </div>
-                  <div id="descripcion">
-                    <button (click)="toClassAdmin()"> Create Class </button>
-                    <button (click)="onSignOut()">  Sign Out </button>
-                </div>
-                </div>
+                <router-outlet></router-outlet>
               </div>
         </div>
       </div>
