@@ -20,7 +20,7 @@
             <button (click)="goToAttendanceStudent(class.ClassId)"> Go to Class</button>
         </div>
         
-        <button (click)="signUp()"> Sign up to a class</button>
+        <button> Sign up to a class</button>
         
         
         
@@ -28,7 +28,7 @@
         
         <div *ngIf="true">
         
-        <p>----------Campos par creacion de clase-------</p>
+        <p>----------Campos par creacion de clase  => POPUP -------</p>
         
         
         <input [(ngModel)]="className"/> 
@@ -40,6 +40,10 @@
         
         <p>----------Campos par creacion de clase-------</p>
         
+        <p>----------Campos para signup de clases => POPUP-------</p>
+        <input [(ngModel)]="classCode"/> 
+        <button (click)="signUp()"> Sign UP to Class </button>
+        <p>----------Campos para signup de clases-------</p>
         
         
         

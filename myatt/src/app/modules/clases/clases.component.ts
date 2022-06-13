@@ -14,6 +14,9 @@ export class ClasesComponent implements OnInit {
   asProffList!:any[];
   asStudentList!:any[];
 
+  @Input() classCode!: string;
+  @Output() classCodeChange = new EventEmitter<string>();
+
   @Input() className!: string;
   @Output() classNameChange = new EventEmitter<string>();
 
@@ -66,14 +69,21 @@ export class ClasesComponent implements OnInit {
     this.router.navigate(['atts'])
   }
 
+  async signUp() {
+    console.log("Trying to signup")
+    await this.dbhandler.addStudent(this.classCode, {Students: arrayUnion(this.uid)})
+    this.dbhandler.getAClass(this.classCode).subscribe( (res:any) => {
+      console.log(res.data().ClassName)
+      this.dbhandler.updateUser(this.uid, {
+        ClassesAsStudent: arrayUnion({ClassId:this.classCode,ClassName:res.data().ClassName})
+      }).then((res2: any) => console.log("success"))
+    })
+  }
+
   // markAttendance(classId:string){
   //   this.dbhandler.infoHolder = []
   //   this.dbhandler.infoHolder.push(classId)
   //   this.router.navigate(['atts'])
   // }
-
-  signUp(){
-    this.router.navigate(['classsignup'])
-  }
 
 }
