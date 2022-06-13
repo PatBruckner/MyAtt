@@ -18,7 +18,10 @@ export class ClasesComponent implements OnInit {
     this.router.navigate(['classadmin']);
   }
 
-  onSignOut(){
-    this.fbAuth.signOut().then(res => this.router.navigate(['login']))
+  //onSignOut(){
+    //this.fbAuth.signOut().then(res => this.router.navigate(['login']))
+ // }
+  toSelectedClass(){
+    
   }
 }

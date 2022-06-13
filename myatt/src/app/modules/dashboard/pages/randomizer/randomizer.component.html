@@ -1,1 +1,11 @@
-<p>randomizer works!</p>
+<h1>Randomizador</h1>
+<div>
+<input type="text" id="words" #words>
+
+<button id="Add" (click)="appendToArray(words.value)">Agregar</button>
+
+<button id="Shuffle" (click)="shuffleList()">Randomizar</button>
+
+<button id="Clear" (click)="clearList()">Limpiar Lista</button>
+  <h3>List</h3>
+  <ul id="list" #list></ul>
