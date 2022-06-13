@@ -15,7 +15,6 @@ import { SignlogComponent } from './components/signlog/signlog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClassadminComponent } from './components/classadmin/classadmin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ClasssignupComponent } from './components/classsignup/classsignup.component';
 import { AttProffComponent } from './components/att-proff/att-proff.component';
 import { AttStudentComponent } from './components/att-student/att-student.component';
 
@@ -29,7 +28,6 @@ import { AttStudentComponent } from './components/att-student/att-student.compon
     SignlogComponent,
     DashboardComponent,
     ClassadminComponent,
-    ClasssignupComponent,
     AttProffComponent,
     AttStudentComponent
   ],
