@@ -10,6 +10,7 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AttProffComponent } from './components/att-proff/att-proff.component';
 import { AttStudentComponent } from './components/att-student/att-student.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -28,7 +29,8 @@ import { AttStudentComponent } from './components/att-student/att-student.compon
     FormsModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

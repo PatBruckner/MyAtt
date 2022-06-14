@@ -1,0 +1,16 @@
+<body>
+<p>----------Campos par creacion de clase  => POPUP -------</p>
+<div id="card">
+<div id="card-title">
+      Nombre: <input [(ngModel)]="className"/> 
+
+      <input type="date" #start/> 
+ 
+      <input type="date" #end/>  
+
+      <button (click)="createClass(start.value, end.value)"> crear clase </button>
+</div>    
+</div>  
+      
+<p>----------Campos par creacion de clase-------</p>
+</body>
