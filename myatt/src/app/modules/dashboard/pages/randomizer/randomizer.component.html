@@ -1,11 +1,15 @@
-<h1>Randomizador</h1>
+<h1 style="font-size:40px; color:white">Randomizador</h1>
 <div>
 <input type="text" id="words" #words>
 
-<button id="Add" (click)="appendToArray(words.value)">Agregar</button>
+<button id="Add" (click)="appendToArray(words.value);words.value=''" >Agregar</button>
 
 <button id="Shuffle" (click)="shuffleList()">Randomizar</button>
 
+<h3>List</h3>
+<ul id="list" #list></ul>
+
+<h3>Resultados</h3>
+<ul id="result" #result></ul>
+
 <button id="Clear" (click)="clearList()">Limpiar Lista</button>
-  <h3>List</h3>
-  <ul id="list" #list></ul>

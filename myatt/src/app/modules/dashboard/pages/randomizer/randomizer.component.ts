@@ -15,11 +15,10 @@ export class RandomizerComponent implements OnInit {
   }
   
    appendToArray(word:string) {
-    console.log("mandar palabra");
+    console.log("upload word: "+word);
     this.randomList.push(word);
     this.updateList(this.randomList);
-    word = "";
-    
+    word = '';
   }
   
   updateList(wordsArr: string[]) {
@@ -30,6 +29,18 @@ export class RandomizerComponent implements OnInit {
       var li = document.createElement('li');
       li.innerText = word;
       list!.appendChild(li);
+    }
+    console.log(wordsArr)
+  }
+
+  resultList(wordsArr: string[]) {
+    var result= document.getElementById('result');
+    result!.innerHTML = "";
+    for (var i =0; i < wordsArr.length; i++) {
+      var word = wordsArr[i];
+      var li = document.createElement('li');
+      li.innerText = word;
+      result!.appendChild(li);
     }
     console.log(wordsArr)
   }
@@ -45,9 +56,16 @@ export class RandomizerComponent implements OnInit {
   shuffleList() {
     this.shuffleArr(this.randomList);
     var list = this.randomList;
-    this.updateList(list);
+    this.resultList(list);
   }
   clearList(){
+    for(var i=0;i<this.randomList.length;i++){
+      this.randomList[i]='';
+    }
+    var list= document.getElementById('list');
+    list!.remove();
+    var result= document.getElementById('result');
+    result!.remove();
     
   }
 }
