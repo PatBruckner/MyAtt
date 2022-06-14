@@ -7,7 +7,7 @@ import { RandomizerComponent } from './pages/randomizer/randomizer.component';
 import { TimerComponent } from './pages/timer/timer.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HomeComponent } from './pages/home/home.component';
-import { FormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   {path:'', component: DashboardComponent,
@@ -23,7 +23,7 @@ children:[
   
 ];
 @NgModule({
-  imports: [RouterModule.forChild(routes), FormsModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class DashboardRoutingModule{}
