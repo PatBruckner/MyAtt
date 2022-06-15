@@ -15,7 +15,7 @@ export class SignUpClassPopUpComponent implements OnInit {
   uid!: string;
   asProffList!: any[];
   asStudentList!: any[];
-  name!:string;
+  name!: string;
 
   @Input() classCode!: string;
   @Output() classCodeChange = new EventEmitter<string>();
@@ -34,11 +34,11 @@ export class SignUpClassPopUpComponent implements OnInit {
     })
   }
 
-  openDialogSignUpClass(){
+  openDialogSignUpClass() {
     this.dialogRef.open(SignUpClassPopUpComponent);
   }
 
-  openDialogCreateClass(){
+  openDialogCreateClass() {
     this.dialogRef.open(CreateClassPopUpComponent);
   }
 
@@ -89,29 +89,27 @@ export class SignUpClassPopUpComponent implements OnInit {
   }
 
   signUp() {
-    console.log("Trying to signup")
-    console.log(this.classCode)
-    console.log(this.uid)
-    this.dbhandler.addStudent(
-      this.classCode
-      , {
-      [`Students.${this.uid}`]:this.name, //[`Students.${this.uid}`]
-    }).then(()=>{
-      console.log("success adding student")
-      this.dbhandler.getAClass(this.classCode).subscribe((res: any) => {
-        console.log(res.data().ClassName)
-          this.dbhandler.updateUser(this.uid, {
-            ClassesAsStudent: arrayUnion({ ClassId: this.classCode, ClassName: res.data().ClassName })
-          }).then((res2: any) => console.log("success"))
-      })
-    })
-
-    // this.dbhandler.getAClass(this.classCode).subscribe((res: any) => {
-    //   console.log(res.data().ClassName)
-    //   this.dbhandler.updateUser(this.uid, {
-    //     ClassesAsStudent: arrayUnion({ ClassId: this.classCode, ClassName: res.data().ClassName })
-    //   }).then((res2: any) => console.log("success"))
-    // })
+    if (this.checkEmptyCode()) {
+      this.classCode = this.classCode.trim()
+      console.log("Trying to signup")
+      console.log(this.classCode)
+      console.log(this.uid)
+      this.dbhandler.addStudent(
+        this.classCode
+        , {
+          [`Students.${this.uid}`]: this.name, //[`Students.${this.uid}`]
+        }).then(() => {
+          console.log("success adding student")
+          this.dbhandler.getAClass(this.classCode).subscribe((res: any) => {
+            console.log(res.data().ClassName)
+            this.dbhandler.updateUser(this.uid, {
+              ClassesAsStudent: arrayUnion({ ClassId: this.classCode, ClassName: res.data().ClassName })
+            }).then((res2: any) => console.log("success"))
+          })
+        })
+    } else {
+      console.log("The code is empty")
+    }
   }
 
   checkValidDate(start: string, end: string): boolean {
@@ -120,10 +118,10 @@ export class SignUpClassPopUpComponent implements OnInit {
     console.log(startDate)
     console.log(endDate)
     let today = new Date()
-    if(start=='' || end==''){
+    if (start == '' || end == '') {
       console.log("empty date")
       return false
-    }else if (startDate < today || startDate > endDate|| start == end) {
+    } else if (startDate < today || startDate > endDate || start == end) {
       console.log("wrong date")
       return false
     } else {
@@ -131,12 +129,14 @@ export class SignUpClassPopUpComponent implements OnInit {
     }
   }
 
-  checkValidName(): boolean{
+  checkValidName(): boolean {
     console.log(this.className)
     return this.className != undefined
   }
 
-  
+  checkEmptyCode():boolean{
+    return this.classCode != undefined
+  }
 
   // markAttendance(classId:string){
   //   this.dbhandler.infoHolder = []
