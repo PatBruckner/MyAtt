@@ -13,8 +13,9 @@ export class AttProffComponent implements OnInit {
   classId!:string
   att!:any;
   dates:string[]=[];
+  studentsNames:string[]=[];
   fullAtt:any[]=[];
-  studentList:any
+  studentList:any;
 
   constructor(private dbhandler: DbhandlerService, private fbAuth:AngularFireAuth) { }
 
@@ -24,6 +25,15 @@ export class AttProffComponent implements OnInit {
     this.dbhandler.getAClass(this.classId).subscribe((res:any) =>{
       this.att=res.data()
       this.studentList=res.data().Students
+      
+      for(let i in this.att.Attendances){
+        this.dates.push(i);
+      }
+
+      for(let i in this.studentList){
+        this.studentsNames.push(this.studentList[i])
+      }
+
       console.log("Student List: ",this.studentList)
       this.constructArray()
     })
@@ -73,24 +83,34 @@ export class AttProffComponent implements OnInit {
   }
 
   constructArray(){
-    console.log(this.att.Attendances)
-    let day = 0
-    let student = 0
-    let temp = []
-     for(let i in this.att.Attendances){
-      for(let j in this.studentList){
-        console.log(i)
-        console.log(this.studentList[j])
-        temp.push(this.att.Attendances[i].Students.indexOf(j) > -1)
-        student+=1
+    // let day = 0
+    // let student = 0
+
+    for(let i in this.studentList){
+      let temp2 = []
+      for(let j in this.att.Attendances){
+        temp2.push(this.att.Attendances[j].Students.indexOf(i) > -1);
       }
-      this.fullAtt.push(temp)
-      day+=1
+      this.fullAtt.push(temp2);
+    }
+    console.log(this.fullAtt)
+
+    // let temp = []
+    // for(let i in this.att.Attendances){
+    //   for(let j in this.studentList){
+    //     console.log(i)
+    //     console.log(this.studentList[j])
+    //     temp.push(this.att.Attendances[i].Students.indexOf(j) > -1)
+    //     student+=1
+    //   }
+    //   console.log
+    //   this.fullAtt.push(temp)
+    //   day+=1
 
       //  console.log(i)
       //  this.dates.push(i)
       //  console.log(this.att.Attendances[i])
       //  this.fullAtt.push(this.att.Attendances[i].Students)
-     }
-   }
+    // }
+  }
 }

@@ -8,11 +8,21 @@
 
 <p>{{classCode}}</p>
 
-<ul>
-    <li *ngFor="let date of dates; let i = index">
-        {{date}} --> 
-        <p *ngFor="let student of studentList">
-        {{student}}
-        </p>
-    </li>
-</ul>
+<table>
+    <tr>
+        <th>Students</th>
+        <th *ngFor="let date of dates">{{date}}</th>
+    </tr>
+    <tr *ngFor="let student of studentsNames, let i = index">
+        <td>{{student}}</td>
+        <td *ngFor="let at of fullAtt[i]">{{at}}</td>
+    </tr>
+</table>
+
+<!-- <td *ngFor="let at of fullAtt[i]">
+    {{at}}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Sign-check-icon.png" *ngIf="att==='true'; else xImg" style="width: 50px; height: 50px;">
+    <ng-template #xImg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1200px-Flat_cross_icon.svg.png" style="width: 50px; height: 50px;">
+    </ng-template>
+</td> -->
