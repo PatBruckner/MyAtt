@@ -6,6 +6,9 @@ import { TimerComponent } from './pages/timer/timer.component';
 import { RandomizerComponent } from './pages/randomizer/randomizer.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list'
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MatButtonModule,
+    MatListModule,
+    MatGridListModule
   ]
 })
 export class DashboardModule { }

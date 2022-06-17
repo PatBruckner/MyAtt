@@ -1,10 +1,10 @@
-body {
-    background: -webkit-linear-gradient(bottom, #003347, #003347);
-    background-repeat: no-repeat;
-    //padding-left: 30%;
-    width: 100%;
-    height: 100%;
-  }
+// body {
+//     background: -webkit-linear-gradient(bottom, #003347, #003347);
+//     background-repeat: no-repeat;
+//     //padding-left: 30%;
+//     width: 100%;
+//     height: 100%;
+//   }
 
   #card-title {
     font-family: "Raleway Thin", sans-serif;
@@ -17,7 +17,7 @@ body {
 
 .box01{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     //border: 5px solid red;
     display: flex;
     //align-items: flex-end;
@@ -25,7 +25,7 @@ body {
   
   .box02{
     width: 20%;
-    height: 100%;
+    height: 100vh;
     //border: 5px solid blue;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -35,7 +35,7 @@ body {
   
   .box03{
     width: 80%;
-    height: 100%;
+    height: 100vh;
     //border: 5px solid green;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -52,9 +52,9 @@ body {
   #card {
     background: #FBAA60;
     border-radius: 10px;
-    height: 870px;
+    height: 100%;
     width: 100%;
-    padding-bottom: 1%;
+    // padding-bottom: 1%;
     //margin: 13rem auto 8.1rem auto;
   }
 
@@ -76,6 +76,8 @@ body {
     padding-bottom: 5%;
     padding-top: 5%;
     text-align: center;
+    display: block;
+    // height: 100%;
   }
 
   #test {
@@ -83,7 +85,7 @@ body {
   }
 
   #test1 {
-    padding-top: 100%;
+    margin-top: 50%;
   }
 
   #card-title2 {
