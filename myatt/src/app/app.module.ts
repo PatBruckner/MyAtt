@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AttProffComponent } from './components/att-proff/att-proff.component';
-import { AttStudentComponent } from './components/att-student/att-student.component';
+import { AttProffComponent } from './modules/clases/pages/att-proff/att-proff.component';
+import { AttStudentComponent } from './modules/clases/pages/att-student/att-student.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -18,9 +18,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AttProffComponent,
-    AttStudentComponent
+    AppComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

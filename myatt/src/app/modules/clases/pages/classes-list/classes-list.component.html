@@ -1,7 +1,7 @@
-<div id="card-content" >
-    <div id="descripcion">
-      <title>Class Admin</title>
-      <!--<div id="card-title2">
+<div id="card-content">
+  <div id="descripcion">
+    <title>Class Admin</title>
+    <!--<div id="card-title2">
         <h2>Classes as Teacher</h2>
       </div>
       <div *ngFor="let class of asProffList">
@@ -18,31 +18,47 @@
       </div>
       
       <button (click)="openDialogSignUpClass()"> Sign up to a class</button>-->
-      <div class="container">
-        <div class="box">
-            <div id="card-title2">
-                <h2>Classes as Teacher</h2>
-            </div>
-            <div *ngFor="let class of asProffList">
-                {{class.ClassName}}
-                <button (click)="goToAttendanceProff(class.ClassId)"> Take Attendance</button>
-            </div>
-            <button (click)="openDialogCreateClass()">Create a new class</button>
+    <div class="container">
+      <div class="box">
+        <div id="card-title2">
+          <h2>Classes as Teacher</h2>
         </div>
+
+        <table>
+          <tr *ngFor="let class of asProffList">
+            <th>
+              {{class.ClassName}}
+            </th>
+            <th>
+              <button (click)="goToAttendanceProff(class.ClassId)"> Take Attendance</button>
+            </th>
+          </tr>
+        </table>
+
+        <button style="margin: 10px;" (click)="openDialogCreateClass()">Create a new class</button>
       </div>
-      <div class="container1">
-        <div class="box">
+        <div class="container1">
+          <div class="box">
             <div id="card-title2">
-                <h2>Classes as Student</h2>
+              <h2>Classes as Student</h2>
             </div>
-            <div *ngFor="let class of asStudentList">
-                {{class.ClassName}}
-                <button (click)="goToAttendanceStudent(class.ClassId)"> Go to Class</button>
-            </div>
+            <table>
+              <tr *ngFor="let class of asStudentList">
+
+                <th>
+                  {{class.ClassName}}
+                </th>
+                <th>
+
+
+                  <button (click)="goToAttendanceStudent(class.ClassId)"> Go to Class</button>
+                </th>
+              </tr>
+            </table>
             <button (click)="openDialogSignUpClass()"> Sign up to a class</button>
+          </div>
         </div>
-      </div>
-      <!--<div *ngIf="true">
+        <!--<div *ngIf="true">
       
       <p>----------Campos par creacion de clase  => POPUP -------</p>
       
@@ -64,5 +80,5 @@
       
       
   </div>-->
-  </div>
-  </div>
+      
+    </div>

@@ -7,13 +7,17 @@ import { ClassesListComponent } from './pages/classes-list/classes-list.componen
 import { MatDialogModule } from '@angular/material/dialog'
 import { CreateClassPopUpComponent } from './pages/create-class-pop-up/create-class-pop-up.component';
 import { SignUpClassPopUpComponent } from './pages/sign-up-class-pop-up/sign-up-class-pop-up.component';
+import { AttProffComponent } from './pages/att-proff/att-proff.component';
+import { AttStudentComponent } from './pages/att-student/att-student.component';
 
 @NgModule({
   declarations: [
     ClasesComponent,
     ClassesListComponent,
     CreateClassPopUpComponent,
-    SignUpClassPopUpComponent
+    SignUpClassPopUpComponent,
+    AttProffComponent,
+    AttStudentComponent
   ],
   imports: [
     CommonModule,

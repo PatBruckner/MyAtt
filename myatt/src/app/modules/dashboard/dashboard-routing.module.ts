@@ -17,7 +17,7 @@ children:[
     {path:'randomizer', component: RandomizerComponent},
     {path:'timer', component: TimerComponent},
     {path:'perfil', component: PerfilComponent},
-    {path:'clases', loadChildren: () => import('../clases/clases.module').then(m => m.ClasesModule)},
+    {path:'classes', loadChildren: () => import('../clases/clases.module').then(m => m.ClasesModule)},
     ]
 },
   
