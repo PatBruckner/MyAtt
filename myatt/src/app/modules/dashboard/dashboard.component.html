@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -32,12 +32,46 @@
                   </div>
                 </div>
               </div>
+<body> -->
+<div class="box01">
+  <div class="box02">
+    <div id="card">
+      <div id="card-content" style="height: 100%;">
+        <div id="card-title">
+          <a href="../../assets/img/att.png" target="_blank"><img src="../../assets/img/att.png" height="100"
+              width="100"></a>
+          <p></p>
+          <h2 color=white;>MyATT</h2>
+
         </div>
-        <div class="box03">
-            <div id="card">
-                <router-outlet></router-outlet>
-              </div>
+
+        <div id="tableButtons">
+          <div id="test">
+            <button routerLink="classes" id="button">Clases</button>
+          </div>
+          <div id="test">
+            <button routerLink="randomizer" id="button">Randomizador</button>
+          </div>
+          <div id="test">
+            <button routerLink="timer" id="button">Timer</button>
+          </div>
+          <div id="test">
+            <button routerLink="perfil" id="button">Perfil</button>
+          </div>
+          <div id="test1">
+            <button id="button" (click)="onSignOut()">Cerrar Sesión</button>
+          </div>
         </div>
+
+
       </div>
-</body>
-</html>
+    </div>
+  </div>
+  <div class="box03">
+    <div id="card">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<!-- </body>
+</html> -->

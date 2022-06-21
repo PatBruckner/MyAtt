@@ -1,16 +1,45 @@
-<body>
-<p>----------Campos par creacion de clase  => POPUP -------</p>
+<!-- <body> -->
+<!--<p>----------Campos par creacion de clase  => POPUP -------</p>
 <div id="card">
-<div id="card-title">
-      Nombre: <input [(ngModel)]="className"/> 
+<div id="card-title"> -->
+<div>
+      <h1 mat-dialog-title>Create a new Class</h1>
+      <div mat-dialog-content>
+            <p>
+                  <mat-form-field appearance="fill">
+                        <mat-label>Class Name:</mat-label>
+                        <input matInput [(ngModel)]="className">
+                  </mat-form-field>
+            </p>
 
-      <input type="date" #start/> 
- 
-      <input type="date" #end/>  
+            <p>
+                  <mat-form-field appearance="fill">
+                        <mat-label>Enter a date range</mat-label>
+                        <mat-date-range-input [rangePicker]="rangePicker">
+                              <input matStartDate placeholder="Start date" #start>
+                              <input matEndDate placeholder="End date" #end>
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #rangePicker>
+                              <mat-date-range-picker-actions>
+                                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                                    <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                              </mat-date-range-picker-actions>
+                        </mat-date-range-picker>
+                  </mat-form-field>
+            </p>
 
-      <button (click)="createClass(start.value, end.value)"> crear clase </button>
-</div>    
-</div>  
-      
-<p>----------Campos par creacion de clase-------</p>
-</body>
+            <!-- <input type="date" #start />
+            <input type="date" #end /> -->
+      </div>
+      <div mat-dialog-actions>
+            <button mat-button mat-dialog-close> Cancel </button>
+            <button mat-raised-button mat-dialog-close color="primary" (click)="createClass(start.value, end.value)">
+                  Create </button>
+      </div>
+</div>
+<!-- </div>    
+      </div>  
+            
+      <p>----------Campos par creacion de clase-------</p>-->
+<!-- </body> -->

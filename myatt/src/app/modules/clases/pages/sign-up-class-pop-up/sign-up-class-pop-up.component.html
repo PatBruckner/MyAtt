@@ -1,8 +1,15 @@
-<p>----------Campos para signup de clases => POPUP-------</p>
-
-      <input [(ngModel)]="classCode"/> 
-      <button (click)="signUp()"> Sign up to Class </button>
-      
-<p>----------Campos para signup de clases-------</p>
-      
-      
+<!-- <p>----------Campos para signup de clases => POPUP-------</p> -->
+<h1 mat-dialog-title>Sign Up to a Class</h1>
+<div mat-dialog-content>
+      <p>
+            <mat-form-field appearance="fill" style="min-width: 300px">
+                  <mat-label>Class Code</mat-label>
+                  <input matInput [(ngModel)]="classCode" />
+            </mat-form-field>
+      </p>
+</div>
+<div mat-dialog-actions>
+      <button mat-raised-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" mat-dialog-close (click)="signUp()">Sign up</button>
+</div>
+<!-- <p>----------Campos para signup de clases-------</p> -->
