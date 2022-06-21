@@ -25,12 +25,12 @@
         </div>
 
         <table>
-          <tr *ngFor="let class of asProffList">
+          <tr *ngFor="let class of asProffList; let i=index">
             <th>
               {{class.ClassName}}
             </th>
             <th>
-              <button (click)="goToAttendanceProff(class.ClassId)"> Take Attendance</button>
+              <button (click)="goToAttendanceProff(class.ClassId, i)"> Take Attendance</button>
             </th>
           </tr>
         </table>

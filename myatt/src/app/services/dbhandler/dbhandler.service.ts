@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 //import { Polls } from '../models/polls';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FieldValue, arrayRemove } from 'firebase/firestore';
+import { Subject } from 'rxjs';
 //import {collection, getDocs} from 'firebase/firestore';
 
 
@@ -14,9 +16,14 @@ export class DbhandlerService {
   pollHolder: any;
   uid: any;
   infoHolder!: any[];
+  fire: Subject<any> = new Subject<any>();
 
   constructor(private firestore: AngularFirestore) {
     //this.sharableList = [];
+  }
+
+  setFire(val:any){
+    this.fire.next("hello")
   }
 
   public createClass(body: any) {
@@ -46,6 +53,11 @@ export class DbhandlerService {
   public getAClass(id:any){
     return this.firestore.collection('Classes').doc(id).get()
   }
+
+  public killClass(id:any){ 
+    return this.firestore.collection('Classes').doc(id).delete()
+  }
+
 
   // public createPoll(body:any){
   //   return this.firestore.collection("polls").add({body})
@@ -78,10 +90,7 @@ export class DbhandlerService {
   //   return this.firestore.collection('polls', ref => ref.where("owner","==", "pity")).get();
   // }
 
-  // public killPoll(id:any){ //should kill
-  //   return this.firestore.collection('polls').doc(id).delete()
-  // }
-
+ 
   // public killUserPoll(uid:any,body:any){ //should be an update
   //   return this.firestore.collection("owners").doc(uid).update(body)   
   // }
