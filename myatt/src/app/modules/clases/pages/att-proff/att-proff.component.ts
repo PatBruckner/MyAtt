@@ -41,6 +41,7 @@ export class AttProffComponent implements OnInit {
       this.att=res.data()
       this.studentList=res.data().Students
       this.className = res.data().ClassName
+      this.classId
       
       for(let i in this.att.Attendances){
         this.dates.push(i);

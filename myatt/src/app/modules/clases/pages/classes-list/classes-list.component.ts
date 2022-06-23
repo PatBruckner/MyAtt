@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { arrayUnion } from 'firebase/firestore';
+import { Subscription } from 'rxjs';
 import { DbhandlerService } from 'src/app/services/dbhandler/dbhandler.service';
 import { CreateClassPopUpComponent } from '../create-class-pop-up/create-class-pop-up.component';
 import { SignUpClassPopUpComponent } from '../sign-up-class-pop-up/sign-up-class-pop-up.component';
@@ -18,6 +19,8 @@ export class ClassesListComponent implements OnInit {
   asProffList!: any[];
   asStudentList!: any[];
   name!:string;
+  obs!: Subscription;
+  loading:boolean=true
 
   @Input() classCode!: string;
   @Output() classCodeChange = new EventEmitter<string>();
@@ -33,6 +36,11 @@ export class ClassesListComponent implements OnInit {
       this.uid = user.uid;
       this.name = user.displayName;
       this.fetchClasses()
+      this.obs = this.dbhandler.snapshotListener(this.uid).subscribe((res: any) => {
+        if (res.type == 'modified') {
+          this.fetchClasses()
+        }
+      })
     })
   }
 
@@ -75,6 +83,7 @@ export class ClassesListComponent implements OnInit {
       console.log(res.data().ClassesAsProff)
       this.asProffList = res.data().ClassesAsProff
       this.asStudentList = res.data().ClassesAsStudent
+      this.loading=false
     })
   }
 
@@ -87,9 +96,8 @@ export class ClassesListComponent implements OnInit {
   }
 
   goToAttendanceStudent(classId: string) {
-    this.dbhandler.infoHolder = []
-    this.dbhandler.infoHolder.push(classId)
-    this.router.navigate(['/dashboard/classes/stu'])
+
+    this.router.navigate(['/dashboard/classes/stu/'+classId])
   }
 
   signUp() {

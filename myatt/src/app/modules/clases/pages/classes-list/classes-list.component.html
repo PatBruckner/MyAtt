@@ -1,3 +1,7 @@
+<div class="spinner-border" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
+
 <div id="card-content">
   <div id="descripcion">
     <title>Class Admin</title>
@@ -18,7 +22,7 @@
       </div>
       
       <button (click)="openDialogSignUpClass()"> Sign up to a class</button>-->
-    <div class="container">
+    <div class="container" *ngIf="!loading">
       <div class="box">
         <div id="card-title2">
           <h2>Classes as Teacher</h2>

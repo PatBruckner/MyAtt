@@ -54,6 +54,10 @@ export class DbhandlerService {
     return this.firestore.collection('Classes').doc(id).get()
   }
 
+  public getAUser(id:any){
+    return this.firestore.collection('Users').doc(id).get()
+  }
+
   public killClass(id:any){ 
     return this.firestore.collection('Classes').doc(id).delete()
   }
@@ -104,8 +108,8 @@ export class DbhandlerService {
   // }
 
   // //Testing Ground
-  // public snapshotListener(id:any){
-  //   return this.firestore.collection('polls').doc(id).snapshotChanges()
-  // }
+ snapshotListener(id:any){
+    return this.firestore.collection('Users').doc(id).snapshotChanges()
+ }
 
 }

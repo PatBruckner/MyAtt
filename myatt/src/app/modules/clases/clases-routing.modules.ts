@@ -5,7 +5,11 @@ import { ClasesComponent } from './clases.component';
 import { AttProffComponent } from './pages/att-proff/att-proff.component';
 import { AttStudentComponent } from './pages/att-student/att-student.component';
 import { ClassesListComponent } from './pages/classes-list/classes-list.component';
+import { redirectLoggedInTo, canActivate, redirectUnauthorizedTo} from '@angular/fire/compat/auth-guard';
 
+
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
+const redirectUnauthorizedToLogin= () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   {path:'', component: ClasesComponent,
@@ -13,7 +17,7 @@ const routes: Routes = [
     {path:'', redirectTo: 'list', pathMatch:'full'},
     {path:'list', component: ClassesListComponent},
     {path:'prof/:classid', component: AttProffComponent},
-    {path:'stu', component: AttStudentComponent}
+    {path:'stu/:classid', component: AttStudentComponent}
     ]
 },
 

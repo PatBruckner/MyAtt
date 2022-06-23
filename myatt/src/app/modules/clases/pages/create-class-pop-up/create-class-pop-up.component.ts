@@ -76,43 +76,6 @@ export class CreateClassPopUpComponent implements OnInit {
     })
   }
 
-  goToAttendanceProff(classId: string) {
-    this.dbhandler.infoHolder = []
-    this.dbhandler.infoHolder.push(classId)
-    this.router.navigate(['attp'])
-  }
-
-  goToAttendanceStudent(classId: string) {
-    this.dbhandler.infoHolder = []
-    this.dbhandler.infoHolder.push(classId)
-    this.router.navigate(['atts'])
-  }
-
-  signUp() {
-    console.log("Trying to signup")
-    console.log(this.classCode)
-    console.log(this.uid)
-    this.dbhandler.addStudent(
-      this.classCode
-      , {
-      [`Students.${this.uid}`]:this.name, //[`Students.${this.uid}`]
-    }).then(()=>{
-      console.log("success adding student")
-      this.dbhandler.getAClass(this.classCode).subscribe((res: any) => {
-        console.log(res.data().ClassName)
-          this.dbhandler.updateUser(this.uid, {
-            ClassesAsStudent: arrayUnion({ ClassId: this.classCode, ClassName: res.data().ClassName })
-          }).then((res2: any) => console.log("success"))
-      })
-    })
-
-    // this.dbhandler.getAClass(this.classCode).subscribe((res: any) => {
-    //   console.log(res.data().ClassName)
-    //   this.dbhandler.updateUser(this.uid, {
-    //     ClassesAsStudent: arrayUnion({ ClassId: this.classCode, ClassName: res.data().ClassName })
-    //   }).then((res2: any) => console.log("success"))
-    // })
-  }
 
   checkValidDate(start: string, end: string): boolean {
     let startDate = new Date(start)
@@ -122,9 +85,6 @@ export class CreateClassPopUpComponent implements OnInit {
     let today = new Date()
     if(start=='' || end==''){
       console.log("empty date")
-      return false
-    }else if (startDate < today || startDate > endDate|| start == end) {
-      console.log("wrong date")
       return false
     } else {
       return true
