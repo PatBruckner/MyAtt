@@ -66,6 +66,6 @@ export class RandomizerComponent implements OnInit {
     list!.remove();
     var result= document.getElementById('result');
     result!.remove();
-    
+  
   }
 }
