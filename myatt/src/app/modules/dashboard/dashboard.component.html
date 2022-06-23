@@ -47,19 +47,22 @@
 
         <div id="tableButtons">
           <div id="test">
-            <button routerLink="classes" id="button">Clases</button>
+            <button routerLink="home" mat-flat-button color="primary" style="width: 75%;">Home</button>
           </div>
           <div id="test">
-            <button routerLink="randomizer" id="button">Randomizador</button>
+            <button routerLink="classes" mat-flat-button color="primary" style="width: 75%;">Clases</button>
           </div>
           <div id="test">
-            <button routerLink="timer" id="button">Timer</button>
+            <button routerLink="randomizer" mat-flat-button color="primary" style="width: 75%;">Randomizador</button>
           </div>
           <div id="test">
-            <button routerLink="perfil" id="button">Perfil</button>
+            <button routerLink="timer" mat-flat-button color="primary" style="width: 75%;">Timer</button>
+          </div>
+          <div id="test">
+            <button routerLink="perfil" mat-flat-button color="primary" style="width: 75%;">Perfil</button>
           </div>
           <div id="test1">
-            <button id="button" (click)="onSignOut()">Cerrar Sesión</button>
+            <button mat-flat-button color="warn" style="width: 75%;" (click)="onSignOut()">Cerrar Sesión</button>
           </div>
         </div>
 
