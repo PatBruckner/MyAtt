@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignlogComponent } from './signlog.component';
+import { ClassesListComponent } from './classes-list.component';
 
-describe('SignlogComponent', () => {
-  let component: SignlogComponent;
-  let fixture: ComponentFixture<SignlogComponent>;
+describe('ClassesListComponent', () => {
+  let component: ClassesListComponent;
+  let fixture: ComponentFixture<ClassesListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignlogComponent ]
+      declarations: [ ClassesListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignlogComponent);
+    fixture = TestBed.createComponent(ClassesListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

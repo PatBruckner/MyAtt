@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClassadminComponent } from './classadmin.component';
+import { SignUpClassPopUpComponent } from './sign-up-class-pop-up.component';
 
-describe('ClassadminComponent', () => {
-  let component: ClassadminComponent;
-  let fixture: ComponentFixture<ClassadminComponent>;
+describe('SignUpClassPopUpComponent', () => {
+  let component: SignUpClassPopUpComponent;
+  let fixture: ComponentFixture<SignUpClassPopUpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClassadminComponent ]
+      declarations: [ SignUpClassPopUpComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClassadminComponent);
+    fixture = TestBed.createComponent(SignUpClassPopUpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

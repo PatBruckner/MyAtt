@@ -1,15 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { DbhandlerService } from 'src/app/services/dbhandler/dbhandler.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { arrayUnion } from 'firebase/firestore';
+import { DbhandlerService } from 'src/app/services/dbhandler/dbhandler.service';
+import { CreateClassPopUpComponent } from '../create-class-pop-up/create-class-pop-up.component';
 
 @Component({
-  selector: 'app-clases',
-  templateUrl: './clases.component.html',
-  styleUrls: ['./clases.component.scss']
+  selector: 'app-sign-up-class-pop-up',
+  templateUrl: './sign-up-class-pop-up.component.html',
+  styleUrls: ['./sign-up-class-pop-up.component.scss']
 })
-export class ClasesComponent implements OnInit {
+export class SignUpClassPopUpComponent implements OnInit {
   uid!: string;
   asProffList!: any[];
   asStudentList!: any[];
@@ -21,7 +23,7 @@ export class ClasesComponent implements OnInit {
   @Input() className!: string;
   @Output() classNameChange = new EventEmitter<string>();
 
-  constructor(private fbAuth: AngularFireAuth, private dbhandler: DbhandlerService, private router: Router) {
+  constructor(private fbAuth: AngularFireAuth, private dbhandler: DbhandlerService, private router: Router, private dialogRef: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -30,6 +32,14 @@ export class ClasesComponent implements OnInit {
       this.name = user.displayName;
       this.fetchClasses()
     })
+  }
+
+  openDialogSignUpClass(){
+    this.dialogRef.open(SignUpClassPopUpComponent);
+  }
+
+  openDialogCreateClass(){
+    this.dialogRef.open(CreateClassPopUpComponent);
   }
 
   createClass(start: any, end: any) {
