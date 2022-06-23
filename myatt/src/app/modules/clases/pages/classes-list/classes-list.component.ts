@@ -80,10 +80,10 @@ export class ClassesListComponent implements OnInit {
 
   goToAttendanceProff(classId: string,index : number) {
     this.dbhandler.infoHolder = []
-    this.dbhandler.infoHolder.push(classId)
-    this.dbhandler.infoHolder.push(index)
+    // this.dbhandler.infoHolder.push(classId)
+    // this.dbhandler.infoHolder.push(index)
     this.dbhandler.setFire("yellow")
-    this.router.navigate(['/dashboard/classes/prof'])
+    this.router.navigate(['/dashboard/classes/prof/'+classId])
   }
 
   goToAttendanceStudent(classId: string) {

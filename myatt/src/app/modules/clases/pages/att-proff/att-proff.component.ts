@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DbhandlerService } from 'src/app/services/dbhandler/dbhandler.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { arrayRemove } from 'firebase/firestore';
 
 @Component({
@@ -22,14 +22,17 @@ export class AttProffComponent implements OnInit {
   index!:number
   className!:string
 
-  constructor(private dbhandler: DbhandlerService, private fbAuth:AngularFireAuth, private router:Router) { }
+  constructor(private dbhandler: DbhandlerService, private fbAuth:AngularFireAuth, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((event: any) => {
+      this.classId = event.classid;})
+
     this.fbAuth.onAuthStateChanged((user: any) => {
       this.uid = user.uid;
     })
-    this.index = this.dbhandler.infoHolder.pop();
-    this.classId = this.dbhandler.infoHolder.pop();
+    //this.index = this.dbhandler.infoHolder.pop();
+    //this.classId = this.dbhandler.infoHolder.pop();
 
     console.log(this.index)
     this.dbhandler.fire.asObservable().subscribe( res => console.log(res))

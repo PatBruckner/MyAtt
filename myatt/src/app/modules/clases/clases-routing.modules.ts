@@ -12,7 +12,7 @@ const routes: Routes = [
   children:[
     {path:'', redirectTo: 'list', pathMatch:'full'},
     {path:'list', component: ClassesListComponent},
-    {path:'prof', component: AttProffComponent},
+    {path:'prof/:classid', component: AttProffComponent},
     {path:'stu', component: AttStudentComponent}
     ]
 },
