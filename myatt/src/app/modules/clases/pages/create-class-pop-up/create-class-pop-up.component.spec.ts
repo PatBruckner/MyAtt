@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { CreateClassPopUpComponent } from './create-class-pop-up.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('CreateClassPopUpComponent', () => {
+  let component: CreateClassPopUpComponent;
+  let fixture: ComponentFixture<CreateClassPopUpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [ CreateClassPopUpComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(CreateClassPopUpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

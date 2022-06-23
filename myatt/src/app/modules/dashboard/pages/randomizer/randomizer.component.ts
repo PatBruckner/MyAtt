@@ -13,14 +13,15 @@ export class RandomizerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
    appendToArray(word:string) {
     console.log("upload word: "+word);
     this.randomList.push(word);
     this.updateList(this.randomList);
+
     word = '';
   }
-  
+
   updateList(wordsArr: string[]) {
     var list= document.getElementById('list');
     list!.innerHTML = "";
@@ -66,6 +67,6 @@ export class RandomizerComponent implements OnInit {
     list!.remove();
     var result= document.getElementById('result');
     result!.remove();
-    
+
   }
 }
