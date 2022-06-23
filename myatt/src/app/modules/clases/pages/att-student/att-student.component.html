@@ -1,11 +1,24 @@
-<p>att-student works!</p>
+<div class="container">
+    Attendance Code
+    <input class="form-control code-input" [(ngModel)]="attCode" />
+    <button mat-raised-button color="primary" (click)="markAtt()"> Mark Attendance </button>
 
-<input [(ngModel)]="attCode"/> 
-<button (click)="markAtt()"> Mark Attendance </button>
-
-<ul>
-    <li *ngFor="let date of dates; let i = index">
-        {{date}} --> {{datesPresent[i]}}
-    </li>
-</ul>
-
+    <table>
+        <tr>
+            <th *ngFor="let date of dates">
+                {{date}}
+            </th>
+        </tr>
+        <tr>
+            <td *ngFor="let date of dates; let i = index">
+                <!-- {{datesPresent[i]}} -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Sign-check-icon.png"
+                    *ngIf="datesPresent[i]; else xImg">
+                <ng-template #xImg>
+                    <img #xImg
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1200px-Flat_cross_icon.svg.png">
+                </ng-template>
+            </td>
+        </tr>
+    </table>
+</div>

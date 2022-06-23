@@ -35,7 +35,7 @@
   
   .box03{
     width: 80%;
-    height: 100vh;
+    height: 100%;
     //border: 5px solid green;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -54,21 +54,20 @@
     border-radius: 10px;
     height: 100%;
     width: 100%;
-    // padding-bottom: 1%;
-    //margin: 13rem auto 8.1rem auto;
+    overflow: auto;
   }
 
-  #button{
-    background: #FBAA60;
-    box-shadow: 0px 1px 8px #FBC490;
-    border-radius: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    width: 75%;
-    text-align: center;
-    color: white;
-    //margin: 13rem auto 8.1rem auto;
-  }
+  // #button{
+  //   background: #FBAA60;
+  //   box-shadow: 0px 1px 8px #FBC490;
+  //   border-radius: 10px;
+  //   padding-left: 10%;
+  //   padding-right: 10%;
+  //   width: 75%;
+  //   text-align: center;
+  //   color: white;
+  //   //margin: 13rem auto 8.1rem auto;
+  // }
 
   #tableButtons {
     font-family: "Raleway Thin", sans-serif;

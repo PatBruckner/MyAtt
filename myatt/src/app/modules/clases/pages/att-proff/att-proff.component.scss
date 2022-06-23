@@ -1,5 +1,45 @@
-table, th, td {
+#card-title2 {
+    font-family: "Raleway Thin", sans-serif;
+    color: white;
+    padding-top: 2%;
+}
+
+table,
+th,
+td {
     border: 3px solid black;
+    padding: 8px;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #003347;
+    color: white;
+}
+
+table {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    width: fit-content;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+tr {
     background-color: white;
-    padding: 10px;
+}
+
+tr:nth-child(odd) {
+    background-color: #dcdcdc;
+}
+
+td:nth-child(n+2) {
+    text-align: center;
+}
+
+.container {
+    padding: 2%;
 }
