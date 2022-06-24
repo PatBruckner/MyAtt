@@ -47,6 +47,7 @@ export class AttStudentComponent implements OnInit {
       }
       this.att = res.data()
       this.constructArray()
+      // this.constructArray2()
     })
   }
 
@@ -81,16 +82,30 @@ export class AttStudentComponent implements OnInit {
     return m + "-" + d + "-" + y
   }
 
-  constructArray() {
-    // console.log(this.att.Attendances)
+  // constructArray() {
+  //   // console.log(this.att.Attendances)
 
+  //   for (let i in this.att.Attendances) {
+  //     console.log(i)
+  //     this.dates.push(i)
+  //     console.log(this.att.Attendances[i].Students.indexOf(this.uid) > -1)
+  //     this.datesPresent.push(this.att.Attendances[i].Students.indexOf(this.uid) > -1)
+  //   }
+
+  // }
+
+  constructArray() {
     for (let i in this.att.Attendances) {
-      console.log(i)
       this.dates.push(i)
-      console.log(this.att.Attendances[i].Students.indexOf(this.uid) > -1)
-      this.datesPresent.push(this.att.Attendances[i].Students.indexOf(this.uid) > -1)
     }
 
+    this.dates = this.dates.sort((a, b) => {
+      return <any>new Date(a) - <any>new Date(b);
+    });
+
+    for(let i of this.dates){
+      this.datesPresent.push(this.att.Attendances[i].Students.indexOf(this.uid) > -1)
+    }
   }
 
   checkEmptyCode(): boolean {

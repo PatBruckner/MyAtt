@@ -21,6 +21,14 @@
                 </ng-template>
             </td>
         </tr>
+        <!-- <tr>
+            <th>State</th>
+            <td *ngFor="let date of dates; let i = index">
+                {{att.Attendances[date].Open}}
+                <p *ngIf="att.Attendances[date].Open">OPEN</p>
+                <p *ngIf="!att.Attendances[date].Open">CLOSED</p>
+            </td>
+        </tr> -->
     </table>
 
     <button mat-raised-button color="primary" (click)="closeAtt()">Close Attendance</button>

@@ -47,9 +47,15 @@ export class AttProffComponent implements OnInit {
         this.dates.push(i);
       }
 
+      this.dates = this.dates.sort((a, b) => {
+        return <any>new Date(a) - <any>new Date(b);
+      });
+
       for(let i in this.studentList){
         this.studentsNames.push(this.studentList[i])
       }
+
+      this.studentsNames = this.studentsNames.sort();
 
       console.log("Student List: ",this.studentList)
       this.constructArray()
@@ -100,36 +106,13 @@ export class AttProffComponent implements OnInit {
   }
 
   constructArray(){
-    // let day = 0
-    // let student = 0
-
     for(let i in this.studentList){
       let temp2 = []
-      for(let j in this.att.Attendances){
+      for(let j of this.dates){
         temp2.push(this.att.Attendances[j].Students.indexOf(i) > -1);
       }
       this.fullAtt.push(temp2);
     }
-    console.log(this.fullAtt)
-    
-
-    // let temp = []
-    // for(let i in this.att.Attendances){
-    //   for(let j in this.studentList){
-    //     console.log(i)
-    //     console.log(this.studentList[j])
-    //     temp.push(this.att.Attendances[i].Students.indexOf(j) > -1)
-    //     student+=1
-    //   }
-    //   console.log
-    //   this.fullAtt.push(temp)
-    //   day+=1
-
-      //  console.log(i)
-      //  this.dates.push(i)
-      //  console.log(this.att.Attendances[i])
-      //  this.fullAtt.push(this.att.Attendances[i].Students)
-    // }
   }
 
   deleteClass(){
