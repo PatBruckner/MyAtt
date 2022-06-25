@@ -19,8 +19,8 @@ export class AttProffComponent implements OnInit {
   fullAtt:any[]=[];
   studentList:any;
   uid!:string
-  index!:number
   className!:string
+  loading:boolean=true;
 
   constructor(private dbhandler: DbhandlerService, private fbAuth:AngularFireAuth, private router:Router, private route:ActivatedRoute) { }
 
@@ -33,15 +33,18 @@ export class AttProffComponent implements OnInit {
     })
     //this.index = this.dbhandler.infoHolder.pop();
     //this.classId = this.dbhandler.infoHolder.pop();
-
-    console.log(this.index)
     this.dbhandler.fire.asObservable().subscribe( res => console.log(res))
 
     this.dbhandler.getAClass(this.classId).subscribe((res:any) =>{
       this.att=res.data()
       this.studentList=res.data().Students
       this.className = res.data().ClassName
-      this.classId
+      try{
+      this.classCode = res.data().Attendances[this.getDate()].Code
+      }catch (e){
+        console.log("code not set yet")
+      }
+      console.log(this.classCode)
       
       for(let i in this.att.Attendances){
         this.dates.push(i);
@@ -59,6 +62,7 @@ export class AttProffComponent implements OnInit {
 
       console.log("Student List: ",this.studentList)
       this.constructArray()
+      this.loading = false
     })
 
   }

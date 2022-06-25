@@ -1,4 +1,7 @@
-<div class="container">
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+</div>
+
+<div class="container" *ngIf="!loading">
     <div id="card-title2">
         <h2>{{className}}</h2>
     </div>
@@ -33,7 +36,7 @@
 
     <button mat-raised-button color="primary" (click)="closeAtt()">Close Attendance</button>
 
-    <button mat-raised-button color="primary" (click)="openAtt()">Take Today's Attendance</button>
+    <button mat-raised-button color="primary" (click)="openAtt()" *ngIf="!classCode">Take Today's Attendance</button>
 
     <button mat-raised-button color="primary" (click)="deleteClass()">Delete this class</button>
 
