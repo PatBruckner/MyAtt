@@ -5,7 +5,7 @@
     <div id="card-title2">
         <h2>{{className}}</h2>
     </div>
-    <h4>Class Code: {{classId}}</h4>
+    <h4 class="caja1">Class Code: </h4>&nbsp;<h4 class="caja1" id="classId"> {{classId}}</h4>
 
 
     <table>
@@ -34,14 +34,16 @@
         </tr> -->
     </table>
 
-    <button mat-raised-button color="primary" (click)="closeAtt()">Close Attendance</button>
+    <button mat-raised-button color="primary" id="closeAtt" (click)="closeAtt()">Close Attendance</button>
 
-    <button mat-raised-button color="primary" (click)="openAtt()" *ngIf="!classCode">Take Today's Attendance</button>
 
-    <button mat-raised-button color="primary" (click)="deleteClass()">Delete this class</button>
+    <button mat-raised-button color="primary" id="takeAtt" (click)="openAtt()"*ngIf="!classCode">Take Today's Attendance</button>
+
+
+    <button mat-raised-button color="primary" id="deleteClass" (click)="deleteClass()">Delete this class</button>
 
     <div *ngIf="classCode">
         This is the attendance code for today:
-        <p>{{classCode}}</p>
+        <p id="attId">{{classCode}}</p>
     </div>
 </div>
