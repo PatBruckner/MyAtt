@@ -6,7 +6,7 @@ body {
     height: 100%;
   }
   
-  
+
   .box01{
     background: -webkit-linear-gradient(bottom, #F67B50, #F67B50);
     background-repeat: no-repeat;
@@ -24,7 +24,9 @@ body {
     width: 90%;
     height: 10%;
     position: relative;
-    left:60px;
+    margin-right:5%;
+    margin-left: 5%;
+    //left:60px;
     //border: 5px solid red;
     display: flex;
     //align-items: flex-end;
@@ -109,3 +111,10 @@ body {
     font-size: 25px;
   }
   
+  #card-title2 {
+    font-family: "Raleway Thin", sans-serif;
+    color: white;
+    padding-top: 2%;
+    margin-left: 5%;
+    padding-bottom: 1%;
+  }
