@@ -8,14 +8,14 @@
             <p>
                   <mat-form-field appearance="fill">
                         <mat-label>Class Name:</mat-label>
-                        <input matInput [(ngModel)]="className">
+                        <input id="classNameInput" matInput [(ngModel)]="className">
                   </mat-form-field>
             </p>
 
             <p>
                   <mat-form-field appearance="fill">
                         <mat-label>Enter a date range</mat-label>
-                        <mat-date-range-input [rangePicker]="rangePicker">
+                        <mat-date-range-input id="rangeInput" [rangePicker]="rangePicker">
                               <input matStartDate placeholder="Start date" #start>
                               <input matEndDate placeholder="End date" #end>
                         </mat-date-range-input>
